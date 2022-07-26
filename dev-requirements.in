@@ -1,0 +1,5 @@
+-c requirements.txt
+pyright
+autopep8
+# pip==22.0.4
+pip-tools
