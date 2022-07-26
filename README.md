@@ -14,6 +14,14 @@ Right click any message and copy the link, which looks like `https://discord.com
 
 ### Run the Script
 
+First install dependencies.
+
+```
+pip install -r requirements.txt
+```
+
+Then use the script `discord-export.py`.
+
 ```
 ./discord-export.py -h
 usage: discord-export.py [-h] [--context {around,after,before}] [--limit N] URL
