@@ -92,9 +92,17 @@ def format_one_message(message):
         indexed_mentions[mention['id']] = mention['username']
     embeds = format_embeds(message['embeds'])
     attachments = format_attachments(message['attachments'])
+
+    if 'referenced_message' in message:
+        reply_to_user = message['referenced_message']['author']['username']
+        shorten_text = textwrap.shorten(scrub_text(message['referenced_message']['content']), width=32, placeholder="...")
+        reply_to = f'    > r @{reply_to_user}: {shorten_text}\n'
+    else:
+        reply_to = ''
+
     return "\n".join([
         f'- **{message["author"]["username"]}** ({format_date(message["timestamp"])}): ',
-        "",
+        reply_to,
         indent_text(scrub_text(handle_user_mentions(
             message['content'], indexed_mentions)), "    "),
         embeds,
