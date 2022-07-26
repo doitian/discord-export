@@ -46,7 +46,7 @@ def format_one_embed(embed):
         lines.append(indent_text(scrub_text(embed['description']), "    > "))
     if 'thumbnail' in embed:
         lines.append("    >")
-        lines.append(f'    > ![]({embed["thumbnail"]})')
+        lines.append(f'    > ![]({embed["thumbnail"]["proxy_url"]})')
     return "\n".join(lines)
 
 
