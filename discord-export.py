@@ -64,8 +64,14 @@ def format_attachments(attachments):
         if attachment.get('width') is not None:
             lines.append(f'   ![]({attachment["proxy_url"]})')
         else:
+            name = ''
+            if 'name' in attachment:
+                name = attachment['name']
+            if 'filename' in attachment:
+                name = attachment['filename']
+
             lines.append(
-                f'   [{attachment["name"]}]({attachment["proxy_url"]})')
+                f'   [{name}]({attachment["proxy_url"]})')
 
     if len(lines) > 0:
         lines.append("")
