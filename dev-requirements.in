@@ -1,4 +1,4 @@
--c requirements.txt
+-r requirements.in
 pyright
 autopep8
 # pip==22.0.4
